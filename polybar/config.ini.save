@@ -1,0 +1,61 @@
+20-2;11u0;11u;11u;11u9;11ubar/mybar]
+width = 100%
+heigth = 30
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-color = ${colors.border}
+border-size = 1
+separator = |
+separator-foreground = ${colors.border}
+
+modules-right = cpu ram
+module-margin = 1 
+
+#definir colores
+[colors]
+background = #000000
+foreground = #FFFFFF
+border = #480082
+background-alt = #373B41
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = "CPU: <label>"
+label = %percentage%%
+
+
+[module/ram]
+type = internal/memory
+interval = 2
+format = "RAM: <label>"
+label = %used% / %total% 
+
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %name%
+label-unfocused = %name%
+label-mode = %name%
+
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+label-active = %name%
+label-active-background = %{colors.background-alt}
+label-active-underline = %{colors.border}
+label-active-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:60:...%
